@@ -53,8 +53,6 @@ public class PostController {
 		.userId(post.getUserId())
 		.build();
 		
-		//BeanUtils.copyProperties(post, currentPost, "id");
-		
 		return service.guncelle(currentPost);
 	}
 
