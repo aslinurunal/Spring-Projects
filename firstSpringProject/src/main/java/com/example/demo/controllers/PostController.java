@@ -46,7 +46,14 @@ public class PostController {
 		
 		Post currentPost = service.idIleGetir(id);
 		
-		BeanUtils.copyProperties(post, currentPost, "id");
+		currentPost = Post.builder()
+		.id(post.getId())
+		.body(post.getBody())
+		.title(post.getTitle())
+		.userId(post.getUserId())
+		.build();
+		
+		//BeanUtils.copyProperties(post, currentPost, "id");
 		
 		return service.guncelle(currentPost);
 	}
